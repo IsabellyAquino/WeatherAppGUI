@@ -29,7 +29,7 @@ public class WeatherApp {
         // cria URL de solicitação de API com coordenadas de localização
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
                 "latitude=" + latitude + "&longitude=" + longitude +
-                "&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&timezone=America%2FLos_Angeles";
+                "&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&timezone=America%2FSao_Paulo";
 
         try{
             //chama API e obtém resposta
