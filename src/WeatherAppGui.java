@@ -30,7 +30,6 @@ public class WeatherAppGui extends JFrame {
 
         // evita qualquer redimensionamento da nossa interface gráfica
         setResizable(false);
-
         addGuiComponents();
 
     }
@@ -46,36 +45,44 @@ public class WeatherAppGui extends JFrame {
         searchTextFiel.setFont(new Font("Dialog", Font.PLAIN, 24));
         add(searchTextFiel);
 
+        //imagem do tempo
         JLabel weatherConditionImage = new  JLabel(loadImage("src/assets/icons8-cloudy-64.png"));
         weatherConditionImage.setBounds(0,125,450,217);
         add(weatherConditionImage);
 
+        //texto de temperatura
         JLabel temperatureText = new JLabel("10 C");
         temperatureText.setBounds(0,350,450,54);
         temperatureText.setFont(new Font("Dialog", Font.BOLD, 48));
 
+        //centraliza o texto
         temperatureText.setHorizontalAlignment(SwingConstants.CENTER);
         add(temperatureText);
 
+        // descrição da condição climática
         JLabel weatherConditionDesc = new JLabel("Cloudy");
         weatherConditionDesc.setBounds(0,405,450,36);
         weatherConditionDesc.setFont(new Font("Dialog", Font.PLAIN, 32));
         weatherConditionDesc.setHorizontalAlignment(SwingConstants.CENTER);
         add(weatherConditionDesc);
 
+        // imagem de umidade
         JLabel humidityImage =  new JLabel(loadImage("src/assets/humidity.png"));
         humidityImage.setBounds(15,500,74,66);
         add(humidityImage);
 
+        // texo de umidade
         JLabel humidityText =  new JLabel("<html><b>Humidade<b> 100%</html>");
         humidityText.setBounds(90,500,85,55);
         humidityText.setFont(new Font("Dialog", Font.PLAIN, 10));
         add(humidityText);
 
+        // imagem de velocidade do vento
         JLabel windspeedImage =  new JLabel(loadImage("src/assets/windspeed.png"));
         windspeedImage.setBounds(220,500,74,66);
         add(windspeedImage);
 
+        // texto de velocidade do vento
         JLabel windspeedText =  new JLabel("<html><b>Velocidade do vento<b> 15km/h</html>");
         windspeedText.setBounds(310,500,85,55);
         windspeedText.setFont(new Font("Dialog", Font.PLAIN, 10));
@@ -89,24 +96,24 @@ public class WeatherAppGui extends JFrame {
         searchButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //obtém a localização pelo usuário
                 String userInput = searchTextFiel.getText();
 
-
+                // valida a entrada - remove os espaços em branco para garantir que o texto não esteja vazio
                 if(userInput.replaceAll("\\s", "").length() <= 0){
                     return;
 
                 }
 
-
+                // recupera dados meteorológicos
                 weatherData = WeatherApp.getWeatherData(userInput);
 
+                //atualiza a interface
 
-
-
+                //atualiza a imagem do tempo
                 String weatherCondition = (String)  weatherData.get("weather_condition");
 
-
+                // dependendo da condição, atualizaremos a imagem meteorológica que corresponde à condição
                 switch (weatherCondition){
                     case "Limpo":
                         weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
@@ -122,18 +129,18 @@ public class WeatherAppGui extends JFrame {
                         break;
                 }
 
-
+                //atualiza o texto da temperatura
                 double temperature = (double)  weatherData.get("temperature");
                 temperatureText.setText(temperature + " C");
 
-
+                // atualiza o texto da condição climática
                 weatherConditionDesc.setText(weatherCondition);
 
-
+                //atualiza o texto de umidade
                 long humidity = (long) weatherData.get("humidity");
                 humidityText.setText("<html><b>Humidade</b> " + humidity + "%</html>");
 
-
+                //atualiza o texto de velocidade do vento
                 double winspeed = (double) weatherData.get("windspeed");
                 windspeedText.setText("<html><b>Velocidade do vento</b> " + humidity + "km/h</html>");
 
