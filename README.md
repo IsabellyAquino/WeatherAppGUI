@@ -7,6 +7,10 @@
  <br/>
 </p>
 
+<p align="center">
+  <img alt="preview tela" src="app.png" height= "30%" width="30%">
+</p>
+
 
 ## 💻 Projeto
 
