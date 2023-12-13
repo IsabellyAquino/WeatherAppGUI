@@ -45,7 +45,9 @@ Para configurar o ambiente de desenvolvimento e executar o Weather App, siga est
 O Weather App utiliza as seguintes tecnologias e bibliotecas:
 
 - Java 18 ou superior: Plataforma principal para o desenvolvimento do aplicativo.
-- JSON Simples: Utilizado para análise e leitura de dados JSON.
+- JSON Simples: Utilizado para análise e leitura de dados JSON. [[JSON utilizado]](https://code.google.com/archive/p/json-simple/downloads)
 - HTTPURLConnection: Biblioteca integrada do Java para realizar solicitações HTTP e buscar dados de APIs externas.
 - IDE: IntelliJ
+
+- [API utilizada](https://open-meteo.com/en/docs#latitude=33.767&longitude=-118.1892).
   
