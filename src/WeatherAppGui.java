@@ -142,7 +142,7 @@ public class WeatherAppGui extends JFrame {
 
                 //atualiza o texto de velocidade do vento
                 double winspeed = (double) weatherData.get("windspeed");
-                windspeedText.setText("<html><b>Velocidade do vento</b> " + humidity + "km/h</html>");
+                windspeedText.setText("<html><b>Velocidade do vento</b> " + winspeed + "km/h</html>");
 
             }
         });
